@@ -9,6 +9,17 @@ public class CheckingAccount extends Account {
     public CheckingAccount(String holder, Double balance) {
         super(holder, balance);
     }
+
+    public void withdraw(Double bound) {
+        double amountToBeSubtract = getBalance() - bound;
+
+        if(amountToBeSubtract < -OVERDRAFT_FIXED_VALUE) {
+            throw new IllegalArgumentException("You don't have more credits to do this withdraw.");
+        }
+
+        setBalance(getBalance() - bound);
+
+    }
 }
 
 

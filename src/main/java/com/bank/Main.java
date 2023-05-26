@@ -1,14 +1,17 @@
 package com.bank;
 
-import com.bank.entities.SavingsAccount;
+import com.bank.entities.CheckingAccount;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        SavingsAccount acc = new SavingsAccount("Gustavo", 500.0);
-        acc.withdraw(20.0);
+        CheckingAccount acc = new CheckingAccount("Gustavo", 500.0);
+        acc.withdraw(200.0);
+        acc.withdraw(300.0);
+        acc.withdraw(100.0);
+        acc.withdraw(400.0);
 
-        acc.withdraw(45.0);
+        System.out.println(acc);
     }
 }
