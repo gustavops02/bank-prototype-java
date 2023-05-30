@@ -2,17 +2,12 @@ package com.bank.entities;
 
 import java.util.Random;
 
-/**
- * This abstract class contains all attr's and methods that uses in your subclasses.
- */
+
 abstract class Conta {
     //TODO: Create a Logger to all withdraws and deposits. Remember - Create a config.WithdrawLog to do this onE.
 
     private Integer accountNumber;
 
-    /**
-     * After I will update this type from Person. Person not exists yet.
-     */
     private Pessoa holder;
     private Double balance;
 

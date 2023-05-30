@@ -1,7 +1,9 @@
 package com.bank.entities;
 
 
-public class ContaPoupanca extends Conta {
+import com.bank.services.OperacaoBancaria;
+
+public class ContaPoupanca extends Conta implements OperacaoBancaria {
     private static final Double TAX = 0.005;
 
     public ContaPoupanca() {
@@ -9,5 +11,24 @@ public class ContaPoupanca extends Conta {
 
     public ContaPoupanca(Pessoa holder, Double balance) {
         super(holder, balance);
+    }
+
+
+    @Override
+    public void deposit(Double amount) {
+        if (amount < 0.0) {
+            throw new IllegalArgumentException("Favor colocar um valor positivo");
+        }
+        Double interest = amount * (1 + TAX);
+        setBalance(getBalance() + interest);
+    }
+
+    @Override
+    public void withdraw(Double amount) {
+        if (amount > getBalance() || amount < 0.0) {
+            throw new IllegalArgumentException("Erro ao realizar o saque.");
+        }
+
+        setBalance(getBalance() - amount);
     }
 }
