@@ -1,4 +1,4 @@
-package com.bank.services;
+package com.bank.repositories;
 
 public interface OperacaoBancaria {
     void deposit(Double amount);

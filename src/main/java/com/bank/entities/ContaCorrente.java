@@ -1,6 +1,6 @@
 package com.bank.entities;
 
-import com.bank.services.OperacaoBancaria;
+import com.bank.repositories.OperacaoBancaria;
 
 public class ContaCorrente extends Conta implements OperacaoBancaria {
     private static final Double OVERDRAFT_FIXED_VALUE = 500.0;
