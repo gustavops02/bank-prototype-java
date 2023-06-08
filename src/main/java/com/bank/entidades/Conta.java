@@ -4,7 +4,6 @@ import java.util.Random;
 
 
 abstract class Conta {
-    //TODO: Create a Logger to all withdraws and deposits. Remember - Create a config.WithdrawLog to do this onE.
 
     private Integer numeroConta;
 
