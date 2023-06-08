@@ -1,29 +1,29 @@
-package com.bank.entities;
+package com.bank.entidades;
 
 public class Pessoa {
 
     private String cpf;
-    private String name;
+    private String nome;
 
     public Pessoa(){
     }
 
-    public Pessoa(String cpf, String name) {
+    public Pessoa(String cpf, String nome) {
         this.cpf = cpf;
-        this.name = name;
+        this.nome = nome;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     @Override
     public String toString() {
-        return getName();
+        return getNome();
     }
 
 }
