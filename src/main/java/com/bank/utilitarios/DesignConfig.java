@@ -1,6 +1,7 @@
 package com.bank.utilitarios;
 
-import java.sql.ResultSet;
+
+import java.util.Scanner;
 
 public class DesignConfig {
 
@@ -17,7 +18,4 @@ public class DesignConfig {
         System.out.print("Escolha uma opção: ");
     }
 
-    public static void resultado() {
-
-    }
 }

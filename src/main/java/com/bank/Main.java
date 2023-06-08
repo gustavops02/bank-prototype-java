@@ -1,16 +1,17 @@
 package com.bank;
 
 
+import com.bank.database.DBContext;
 import com.bank.utilitarios.DesignConfig;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
-import static com.bank.utilitarios.DesignConfig.layout;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Connection conn = DBContext.getConexao();
 
         DesignConfig.layout();
 
