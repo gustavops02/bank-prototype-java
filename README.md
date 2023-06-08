@@ -1,8 +1,6 @@
 # Banking System
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-
 
 > OBS.: This project has been created for academic purposes. But, the team is considering moving forward with the project.
 
@@ -10,8 +8,7 @@
 Tools used:
 
 - Java
-- Spring Boot
-- Hibernate
+- JDBC Connection
 - MySQL
 
 
