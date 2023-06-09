@@ -1,18 +1,17 @@
 package com.bank;
 
 
-import com.bank.database.DBContext;
-import com.bank.utilitarios.DesignConfig;
-
-import java.sql.Connection;
+import com.bank.entidades.Conta;
+import com.bank.entidades.ContaCorrente;
+import com.bank.entidades.Pessoa;
+import com.bank.servicos.ServicoContas;
 
 public class Main {
     public static void main(String[] args) {
 
-        Connection conn = DBContext.getConexao();
+        Conta conta = new ContaCorrente(new Pessoa("17412379712", "Gustavo Paulo"), 0.0);
 
-        DesignConfig.tipoDeConta();
+        ServicoContas.cadastrarConta(conta);
 
     }
-
 }

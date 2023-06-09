@@ -3,7 +3,7 @@ package com.bank.entidades;
 import java.util.Random;
 
 
-abstract class Conta {
+public abstract class Conta {
 
     private Integer numeroConta;
 
