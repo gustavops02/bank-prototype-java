@@ -1,10 +1,11 @@
 package com.bank.utilitarios;
 
 
+import java.util.Scanner;
 
 public class DesignConfig {
 
-    public static void layout() {
+    public static void layoutInicial() {
 
         System.out.print("Bem-vindo ao Sistema Bancário!\n\n");
         System.out.println("Nossas ferramentas:");
@@ -14,7 +15,6 @@ public class DesignConfig {
         System.out.println("3 - Efetuar depósito");
         System.out.println("4 - Efetuar saque");
         System.out.println("--------------------");
-        System.out.print("Escolha uma opção: ");
     }
 
     public static void tipoDeConta() {
@@ -22,7 +22,7 @@ public class DesignConfig {
         System.out.println("Qual o tipo de conta você deseja?\n");
         System.out.println("--> Conta Corrente [CC]");
         System.out.println("--> Conta poupança [CP]\n");
-        System.out.print("Escolha uma opção: ");
+
     }
 
 }
