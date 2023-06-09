@@ -4,15 +4,12 @@ import java.util.Random;
 
 
 public abstract class Conta {
-
+    private Integer id;
     private Integer numeroConta;
 
     private Pessoa titular;
     private Double saldo;
 
-    public Conta() {
-        this.numeroConta = this.createRandomNumeroConta();
-    }
 
     public Conta(Pessoa titular, Double saldo) {
         this.numeroConta = this.createRandomNumeroConta();
@@ -26,6 +23,14 @@ public abstract class Conta {
     }
 
     /*  GETTERS AND SETTERS  */
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getNumeroConta() {
         return numeroConta;
     }

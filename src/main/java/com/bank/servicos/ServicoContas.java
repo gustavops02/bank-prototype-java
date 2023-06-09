@@ -5,11 +5,8 @@ import com.bank.database.DBContext;
 import com.bank.database.excecoes.DBException;
 import com.bank.entidades.Conta;
 import com.bank.entidades.ContaCorrente;
-import com.bank.entidades.ContaPoupanca;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ServicoContas {
 
@@ -18,12 +15,11 @@ public class ServicoContas {
 
     public static void cadastrarConta(Conta conta) {
         try {
-
             stmt = conn.prepareStatement(
                 "INSERT INTO contas "
-                    + "(numeroConta, titular, cpf, tipoConta, saldo) "
+                    + "(id, numeroConta, titular, cpf, tipoConta, saldo) "
                     + "VALUES "
-                    + "(?, ?, ?, ?, ?)"
+                    + "(null, ?, ?, ?, ?, ?)"
             );
             stmt.setInt(1, conta.getNumeroConta());
             stmt.setString(2, conta.getTitular().getNome());
@@ -46,5 +42,20 @@ public class ServicoContas {
             DBContext.fecharConexao();
         }
     }
+
+    public static void deletarConta (int id) {
+        try {
+            stmt = conn.prepareStatement("DELETE FROM contas WHERE id = " + id);
+            int linhas = stmt.executeUpdate();
+
+            if(linhas == 1) {
+                System.out.println("Deletado");
+            }
+
+        } catch (SQLException e) {
+            throw new DBException(e.getMessage());
+        }
+    }
+
 
 }

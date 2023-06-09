@@ -6,9 +6,6 @@ import com.bank.repositorios.OperacaoBancaria;
 public class ContaPoupanca extends Conta implements OperacaoBancaria {
     private static final Double TAXA = 0.005;
 
-    public ContaPoupanca() {
-    }
-
     public ContaPoupanca(Pessoa titular, Double saldo) {
         super(titular, saldo);
     }

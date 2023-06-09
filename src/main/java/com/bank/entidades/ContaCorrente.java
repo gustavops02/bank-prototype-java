@@ -5,8 +5,6 @@ import com.bank.repositorios.OperacaoBancaria;
 public class ContaCorrente extends Conta implements OperacaoBancaria {
     private static final Double TAXA_CHEQUE_ESPECIAL = 500.0;
 
-    public ContaCorrente() {
-    }
 
     public ContaCorrente(Pessoa titular, Double saldo) {
         super(titular, saldo);
