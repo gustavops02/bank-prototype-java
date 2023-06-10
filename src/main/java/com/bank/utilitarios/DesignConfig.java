@@ -11,9 +11,7 @@ public class DesignConfig {
         System.out.println("Nossas ferramentas:");
         System.out.println("--------------------");
         System.out.println("1 - Cadastrar conta");
-        System.out.println("2 - Consultar saldo");
-        System.out.println("3 - Efetuar depósito");
-        System.out.println("4 - Efetuar saque");
+        System.out.println("2 - Usar conta");
         System.out.println("--------------------");
     }
 
@@ -24,5 +22,6 @@ public class DesignConfig {
         System.out.println("--> Conta poupança [CP]\n");
 
     }
+
 
 }
