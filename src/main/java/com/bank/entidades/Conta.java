@@ -22,6 +22,9 @@ public abstract class Conta {
         return random.nextInt(900000) + 100000;
     }
 
+    public abstract void deposito(Double valor);
+
+    public abstract void saque(Double valor);
 
     public Integer getId() {
         return id;

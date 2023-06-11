@@ -1,8 +1,7 @@
 package com.bank.entidades;
 
-import com.bank.repositorios.OperacaoBancaria;
 
-public class ContaCorrente extends Conta implements OperacaoBancaria {
+public class ContaCorrente extends Conta{
     private static final Double TAXA_CHEQUE_ESPECIAL = 500.0;
 
 

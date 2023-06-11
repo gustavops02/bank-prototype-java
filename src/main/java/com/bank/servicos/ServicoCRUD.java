@@ -49,9 +49,9 @@ public class ServicoCRUD {
         double valor = sc.nextDouble();
 
         if (conta instanceof ContaCorrente) {
-            ServicoContas.deposito((ContaCorrente) conta, valor);
+            ServicoContas.deposito(conta, valor);
         } else {
-            ServicoContas.deposito((ContaPoupanca) conta, valor);
+            ServicoContas.deposito(conta, valor);
         }
         System.out.println("Depósito feito!");
 

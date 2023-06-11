@@ -102,43 +102,16 @@ public class ServicoContas {
         return conta;
     }
 
-    public static void deposito(ContaCorrente contaCorrente, double valor) {
-        try {
-            conn.setAutoCommit(false);
-
-            contaCorrente.deposito(valor);
-
-            try (PreparedStatement stmt = conn.prepareStatement(QUERY_UPDATE)) {
-
-                stmt.setDouble(1, contaCorrente.getSaldo());
-                stmt.setInt(2, contaCorrente.getNumeroConta());
-                stmt.executeUpdate();
-
-                conn.commit();
-
-            } catch (SQLException e) {
-                conn.rollback();
-
-                System.out.println(e.getMessage());
-            } finally {
-                conn.setAutoCommit(true);
-            }
-
-        } catch (SQLException e) {
-            throw new DBException(e.getMessage());
-        }
-    }
-
-    public static void deposito(ContaPoupanca contaPoupanca, double valor) {
+    public static void deposito(Conta conta, double valor) {
 
         try {
             conn.setAutoCommit(false);
-            contaPoupanca.deposito(valor);
+            conta.deposito(valor);
 
             try (PreparedStatement stmt = conn.prepareStatement(QUERY_UPDATE)) {
 
-                stmt.setDouble(1, contaPoupanca.getSaldo());
-                stmt.setInt(2, contaPoupanca.getNumeroConta());
+                stmt.setDouble(1, conta.getSaldo());
+                stmt.setInt(2, conta.getNumeroConta());
                 stmt.executeUpdate();
 
                 conn.commit();
@@ -157,7 +130,7 @@ public class ServicoContas {
     }
 
 
-    public static void saque(ContaCorrente conta, double valor) {
+    public static void saque(Conta conta, double valor) {
 
         try {
             conn.setAutoCommit(false);
@@ -186,32 +159,4 @@ public class ServicoContas {
         }
     }
 
-    public static void saque(ContaPoupanca conta, double valor) {
-        try {
-            conn.setAutoCommit(false);
-
-            conta.saque(valor);
-
-            try (PreparedStatement stmt = conn.prepareStatement(QUERY_UPDATE)) {
-
-                stmt.setDouble(1, conta.getSaldo());
-                stmt.setInt(2, conta.getNumeroConta());
-
-                stmt.executeUpdate();
-                conn.commit();
-
-            } catch (SQLException e) {
-                conn.rollback();
-                System.out.println(e.getMessage());
-
-            } finally {
-                conn.setAutoCommit(true);
-
-            }
-
-        } catch (SQLException e) {
-            throw new DBException(e.getMessage());
-        }
-
-    }
 }

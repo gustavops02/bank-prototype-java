@@ -1,9 +1,8 @@
 package com.bank.entidades;
 
 
-import com.bank.repositorios.OperacaoBancaria;
 
-public class ContaPoupanca extends Conta implements OperacaoBancaria {
+public class ContaPoupanca extends Conta {
     private static final Double TAXA = 0.005;
 
     public ContaPoupanca(Pessoa titular, Double saldo) {
