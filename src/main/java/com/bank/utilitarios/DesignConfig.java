@@ -1,6 +1,8 @@
 package com.bank.utilitarios;
 
 
+import com.bank.entidades.Conta;
+
 import java.util.Scanner;
 
 public class DesignConfig {
@@ -23,5 +25,16 @@ public class DesignConfig {
 
     }
 
+    public static void usarConta(Conta conta) {
+        System.out.print("\n\n");
+        System.out.println("Olá, " + conta.getTitular().getNome());
+        System.out.println("O que deseja fazer? ");
+        System.out.println("--------------------");
+        System.out.println("1 - Consultar saldo");
+        System.out.println("2 - Depositar");
+        System.out.println("3 - Sacar");
+        System.out.println("4 - Excluir conta");
+
+    }
 
 }

@@ -22,7 +22,7 @@ public abstract class Conta {
         return random.nextInt(900000) + 100000;
     }
 
-    /*  GETTERS AND SETTERS  */
+
     public Integer getId() {
         return id;
     }
@@ -42,7 +42,6 @@ public abstract class Conta {
     public Pessoa getTitular() {
         return titular;
     }
-
 
     public void setTitular(Pessoa titular) {
         this.titular = titular;
