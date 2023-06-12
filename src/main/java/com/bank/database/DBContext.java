@@ -21,7 +21,7 @@ public class DBContext {
                 connection = DriverManager.getConnection(url, host, senha);
 
             } catch (SQLException erro) {
-                throw new DBException(erro.getMessage(), connection);
+                throw new DBException(erro.getMessage());
             }
         }
         return connection;
@@ -35,7 +35,7 @@ public class DBContext {
                 connection.close();
 
             } catch (SQLException e) {
-                throw new DBException(e.getMessage(), connection);
+                throw new DBException(e.getMessage());
 
             }
         }

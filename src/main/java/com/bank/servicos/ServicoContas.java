@@ -37,14 +37,14 @@ public class ServicoContas {
 
             } catch (SQLException e) {
                 conn.rollback();
-                throw new DBException(e.getMessage(), conn);
+                throw new DBException(e.getMessage());
             } finally {
 
                 conn.setAutoCommit(true);
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage(), conn);
+            throw new DBException(e.getMessage());
         }
     }
 
@@ -63,13 +63,13 @@ public class ServicoContas {
                 conn.commit();
             } catch (SQLException e) {
                 conn.rollback();
-                throw new DBException(e.getMessage(), conn);
+                throw new DBException(e.getMessage());
             } finally {
                 conn.setAutoCommit(true);
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage(), conn);
+            throw new DBException(e.getMessage());
         }
     }
 
@@ -96,7 +96,7 @@ public class ServicoContas {
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage(),conn);
+            throw new DBException(e.getMessage());
         }
 
         return conta;
@@ -125,7 +125,7 @@ public class ServicoContas {
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage(), conn);
+            throw new DBException(e.getMessage());
         }
     }
 
@@ -154,7 +154,7 @@ public class ServicoContas {
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage(), conn);
+            throw new DBException(e.getMessage());
         }
     }
 
