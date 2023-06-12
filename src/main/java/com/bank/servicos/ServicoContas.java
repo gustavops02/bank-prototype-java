@@ -118,8 +118,8 @@ public class ServicoContas {
 
             } catch (SQLException e) {
                 conn.rollback();
+                throw new DBException(e.getMessage());
 
-                System.out.println(e.getMessage());
             } finally {
                 conn.setAutoCommit(true);
             }
@@ -146,7 +146,7 @@ public class ServicoContas {
 
             } catch (SQLException e) {
                 conn.rollback();
-                System.out.println(e.getMessage());
+                throw new DBException(e.getMessage());
 
             } finally {
                 conn.setAutoCommit(true);

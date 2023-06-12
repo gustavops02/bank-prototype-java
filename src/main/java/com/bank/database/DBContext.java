@@ -36,7 +36,6 @@ public class DBContext {
 
             } catch (SQLException e) {
                 throw new DBException(e.getMessage());
-
             }
         }
     }
