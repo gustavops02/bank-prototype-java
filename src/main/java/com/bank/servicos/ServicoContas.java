@@ -16,11 +16,9 @@ public class ServicoContas {
 
     private static final Connection conn = DBContext.getConexao();
 
-
-
     public static void cadastrarConta(Conta conta) {
 
-        try { // TRY para a transação
+        try {
             conn.setAutoCommit(false);
 
             try (PreparedStatement stmt = conn.prepareStatement(QUERY_INSERT)) {
@@ -39,14 +37,14 @@ public class ServicoContas {
 
             } catch (SQLException e) {
                 conn.rollback();
-                throw new DBException(e.getMessage());
+                throw new DBException(e.getMessage(), conn);
             } finally {
 
                 conn.setAutoCommit(true);
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage());
+            throw new DBException(e.getMessage(), conn);
         }
     }
 
@@ -65,13 +63,13 @@ public class ServicoContas {
                 conn.commit();
             } catch (SQLException e) {
                 conn.rollback();
-                throw new DBException(e.getMessage());
+                throw new DBException(e.getMessage(), conn);
             } finally {
                 conn.setAutoCommit(true);
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage());
+            throw new DBException(e.getMessage(), conn);
         }
     }
 
@@ -86,17 +84,19 @@ public class ServicoContas {
                     Pessoa pessoa = new Pessoa(rs.getString("cpf"), rs.getString("titular"));
                     conta = new ContaCorrente(pessoa, rs.getDouble("saldo"));
                     conta.setNumeroConta(numConta);
+                    conta.setId(rs.getInt("id"));
 
                 } else if (rs.getString("tipoConta").equals("CP")) {
 
                     Pessoa pessoa = new Pessoa(rs.getString("cpf"), rs.getString("titular"));
                     conta = new ContaPoupanca(pessoa, rs.getDouble("saldo"));
                     conta.setNumeroConta(numConta);
+                    conta.setId(rs.getInt("id"));
                 }
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage());
+            throw new DBException(e.getMessage(),conn);
         }
 
         return conta;
@@ -125,10 +125,9 @@ public class ServicoContas {
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage());
+            throw new DBException(e.getMessage(), conn);
         }
     }
-
 
     public static void saque(Conta conta, double valor) {
 
@@ -155,7 +154,7 @@ public class ServicoContas {
             }
 
         } catch (SQLException e) {
-            throw new DBException(e.getMessage());
+            throw new DBException(e.getMessage(), conn);
         }
     }
 

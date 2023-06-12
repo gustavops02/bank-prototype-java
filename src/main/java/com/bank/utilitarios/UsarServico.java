@@ -39,7 +39,7 @@ public class UsarServico {
     }
 
     public static void consultaSaldo(Conta conta) {
-        System.out.print(conta.getSaldo());
+        System.out.println(conta.getSaldo());
 
     }
 

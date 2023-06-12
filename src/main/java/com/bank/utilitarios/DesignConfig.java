@@ -1,9 +1,6 @@
 package com.bank.utilitarios;
 
-
 import com.bank.entidades.Conta;
-
-import java.util.Scanner;
 
 public class DesignConfig {
 
