@@ -1,15 +1,15 @@
-package com.bank.servicos;
+package com.bank.utilitarios;
 
 
 import com.bank.entidades.Conta;
 import com.bank.entidades.ContaCorrente;
 import com.bank.entidades.ContaPoupanca;
 import com.bank.entidades.Pessoa;
-import com.bank.utilitarios.DesignConfig;
+import com.bank.servicos.ServicoContas;
 
 import java.util.Scanner;
 
-public class ServicoCRUD {
+public class UsarServico {
 
     public static void executarCadastro(Scanner sc) {
 

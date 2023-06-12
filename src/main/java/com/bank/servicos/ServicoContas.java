@@ -10,13 +10,13 @@ import com.bank.entidades.Pessoa;
 
 import java.sql.*;
 
+import static com.bank.constantes.ConstantesQueries.*;
+
 public class ServicoContas {
 
     private static final Connection conn = DBContext.getConexao();
 
-    private static final String QUERY_INSERT = "INSERT INTO contas (id, numeroConta, titular, cpf, tipoConta, saldo) VALUES (null, ?, ?, ?, ?, ?)";
-    private static String QUERY_UPDATE = "UPDATE contas SET saldo = ? WHERE numeroConta = ?";
-    private static final String QUERY_DELETE = "DELETE FROM contas WHERE numeroConta = ? AND cpf = ?";
+
 
     public static void cadastrarConta(Conta conta) {
 

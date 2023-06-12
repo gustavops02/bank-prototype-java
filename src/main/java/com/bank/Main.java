@@ -3,7 +3,7 @@ package com.bank;
 import com.bank.database.excecoes.DBException;
 import com.bank.entidades.Conta;
 import com.bank.servicos.ServicoContas;
-import com.bank.servicos.ServicoCRUD;
+import com.bank.utilitarios.UsarServico;
 import com.bank.utilitarios.DesignConfig;
 
 import java.sql.SQLException;
@@ -26,7 +26,7 @@ public class Main {
 
             switch (numero) {
                 case 1:
-                    ServicoCRUD.executarCadastro(sc);
+                    UsarServico.executarCadastro(sc);
                     break;
 
                 case 2:
@@ -70,16 +70,16 @@ public class Main {
 
             switch (num) {
                 case 1:
-                    ServicoCRUD.consultaSaldo(conta);
+                    UsarServico.consultaSaldo(conta);
                     break;
                 case 2:
-                    ServicoCRUD.deposito(sc, conta);
+                    UsarServico.deposito(sc, conta);
                     break;
                 case 3:
-                    ServicoCRUD.saque(sc, conta);
+                    UsarServico.saque(sc, conta);
                     break;
                 case 4:
-                    ServicoCRUD.remover(sc, conta);
+                    UsarServico.remover(sc, conta);
                     break;
                 default:
                     System.out.println("Algo deu errado.");
