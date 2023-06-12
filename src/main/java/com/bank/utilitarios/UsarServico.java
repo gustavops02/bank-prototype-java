@@ -62,9 +62,9 @@ public class UsarServico {
         double val = sc.nextDouble();
 
         if (conta instanceof ContaCorrente) {
-            ServicoContas.saque((ContaCorrente) conta, val);
+            ServicoContas.saque(conta, val);
         } else {
-            ServicoContas.saque((ContaPoupanca) conta, val);
+            ServicoContas.saque(conta, val);
         }
     }
 
