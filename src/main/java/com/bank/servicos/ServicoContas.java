@@ -73,7 +73,7 @@ public class ServicoContas {
         }
     }
 
-    public static Conta buscarConta(int numeroConta, String cpf) throws SQLException {
+    public static Conta buscarConta(int numeroConta, String cpf) {
         Conta conta = null;
         try (Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery("SELECT * FROM contas WHERE numeroConta = " + numeroConta + " AND cpf = " + cpf)){

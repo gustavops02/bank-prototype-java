@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class UsarServico {
 
-    public static void executarCadastro(Scanner sc) {
+    public static Conta executarCadastro(Scanner sc) {
 
         System.out.print("Nome: ");
         String nome = sc.nextLine();
@@ -28,14 +28,19 @@ public class UsarServico {
         System.out.print("Irá fazer depósito no ato do cadastro?\nSe sim, coloque o valor: ");
         Double saldo = sc.nextDouble();
 
+        Conta conta = null;
+
         if (tipo.equals("CP")) {
-            ServicoContas.cadastrarConta(new ContaPoupanca(pessoa, saldo));
+            conta = new ContaPoupanca(pessoa, saldo);
+            ServicoContas.cadastrarConta(conta);
         } else if (tipo.equals("CC")) {
-            ServicoContas.cadastrarConta(new ContaCorrente(pessoa, saldo));
+            conta = new ContaCorrente(pessoa, saldo);
+            ServicoContas.cadastrarConta(conta);
 
         } else {
             System.out.println("erro");
         }
+        return conta;
     }
 
     public static void consultaSaldo(Conta conta) {

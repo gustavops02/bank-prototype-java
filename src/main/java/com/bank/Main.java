@@ -26,7 +26,8 @@ public class Main {
 
             switch (numero) {
                 case 1:
-                    UsarServico.executarCadastro(sc);
+                    Conta novaConta = UsarServico.executarCadastro(sc);
+                    executarOperacoesConta(sc, novaConta);
                     break;
 
                 case 2:
