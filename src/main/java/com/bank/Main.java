@@ -37,13 +37,9 @@ public class Main {
                     System.out.print("--> Seu CPF: ");
                     String buscaCpf = sc.nextLine();
 
-                    try {
-                        Conta conta = ServicoContas.buscarConta(buscaNumeroConta, buscaCpf);
-                        executarOperacoesConta(sc, conta);
+                    Conta conta = ServicoContas.buscarConta(buscaNumeroConta, buscaCpf);
+                    executarOperacoesConta(sc, conta);
 
-                    } catch (SQLException e) {
-                        throw new DBException(e.getMessage());
-                    }
                     break;
                 default:
                     System.out.println("Algo deu errado");
