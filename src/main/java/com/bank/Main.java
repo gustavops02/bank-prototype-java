@@ -1,12 +1,10 @@
 package com.bank;
 
-import com.bank.database.excecoes.DBException;
 import com.bank.entidades.Conta;
 import com.bank.servicos.ServicoContas;
 import com.bank.utilitarios.UsarServico;
 import com.bank.utilitarios.DesignConfig;
 
-import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
