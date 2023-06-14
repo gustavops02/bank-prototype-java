@@ -66,6 +66,7 @@ public class Main {
             switch (num) {
                 case 1:
                     UsarServico.consultaSaldo(conta);
+                    System.out.println("Pressione Enter para sair");
                     break;
                 case 2:
                     UsarServico.deposito(sc, conta);
@@ -79,7 +80,7 @@ public class Main {
                 default:
                     System.out.println("Algo deu errado.");
             }
-
+            sc.nextLine();
             System.out.print("Deseja realizar outra operação? (S/N): ");
             String confirmacao = sc.nextLine();
 
