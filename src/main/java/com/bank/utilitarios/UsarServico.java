@@ -45,7 +45,7 @@ public class UsarServico {
     }
 
     public static void consultaSaldo(Conta conta) {
-        System.out.println(conta.getSaldo());
+        System.out.println("Saldo: R$ " + conta.getSaldo());
 
     }
 
@@ -54,12 +54,9 @@ public class UsarServico {
         System.out.print("Qual o valor para depósito? ");
         double valor = sc.nextDouble();
 
-        if (conta instanceof ContaCorrente) {
-            ServicoContas.deposito(conta, valor);
-        } else {
-            ServicoContas.deposito(conta, valor);
-        }
-        System.out.println("Depósito feito!");
+        ServicoContas.deposito(conta, valor);
+
+        System.out.println("Depósito feito!\nSaldo atual: R$ " + conta.getSaldo());
 
     }
 
@@ -67,11 +64,9 @@ public class UsarServico {
         System.out.print("Qual o valor para o saque? ");
         double val = sc.nextDouble();
 
-        if (conta instanceof ContaCorrente) {
-            ServicoContas.saque(conta, val);
-        } else {
-            ServicoContas.saque(conta, val);
-        }
+        ServicoContas.saque(conta, val);
+        System.out.println("Saque realizado!\nSaldo atual: R$ " + conta.getSaldo());
+
     }
 
     public static void remover(Scanner sc, Conta conta) {
