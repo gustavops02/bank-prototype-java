@@ -9,13 +9,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws InputMismatchException {
-
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         DesignConfig.layoutInicial();
         System.out.print("Escolha uma opção: ");
-
         int numero;
 
         try {
@@ -40,18 +38,18 @@ public class Main {
 
                     break;
                 default:
-                    System.out.println("Algo deu errado");
+                    System.err.println("Algo deu errado");
             }
 
         } catch (InputMismatchException e) {
-            System.out.println("Entrada inválida. Encerrado o programa.");
+            System.err.println("Entrada inválida. Encerrado o programa...");
         }
 
     }
 
     private static void executarOperacoesConta(Scanner sc, Conta conta) {
         if (conta == null) {
-            System.out.print("Conta não encontrada");
+            System.err.print("Conta não encontrada");
             return;
         }
 
@@ -78,7 +76,7 @@ public class Main {
                     UsarServico.remover(sc, conta);
                     break;
                 default:
-                    System.out.println("Algo deu errado.");
+                    System.err.println("Algo deu errado.");
             }
             sc.nextLine();
             System.out.print("Deseja realizar outra operação? (S/N): ");
