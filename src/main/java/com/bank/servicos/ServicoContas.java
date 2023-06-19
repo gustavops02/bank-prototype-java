@@ -164,7 +164,6 @@ public class ServicoContas {
 
         try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM contas;")) {
             ResultSet rs = stmt.executeQuery();
-
             List<Conta> contas = new ArrayList<>();
 
             while(rs.next()) {
@@ -172,20 +171,20 @@ public class ServicoContas {
                 Pessoa pessoa = new Pessoa(rs.getString(4), rs.getString(3));
                 if (rs.getString(5).equals("CC")) {
                     conta = new ContaCorrente(pessoa, rs.getDouble(6));
+                    conta.setId(rs.getInt(1));
                     contas.add(conta);
                 } else {
                     conta = new ContaPoupanca(pessoa, rs.getDouble(6));
+                    conta.setId(rs.getInt(1));
                     contas.add(conta);
                 }
 
             }
-
             return contas;
 
         } catch (SQLException e) {
             System.out.println("Erro ao consultar todas as contas: " + e.getMessage());
         }
-
 
         return null;
     }

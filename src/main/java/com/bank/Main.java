@@ -4,7 +4,6 @@ import com.bank.entidades.Conta;
 import com.bank.servicos.ServicoContas;
 import com.bank.utilitarios.UsarServico;
 import com.bank.utilitarios.DesignConfig;
-
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
