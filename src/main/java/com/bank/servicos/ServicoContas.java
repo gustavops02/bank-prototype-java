@@ -161,32 +161,33 @@ public class ServicoContas {
     }
 
     public static List<Conta> buscarContas() {
+        List<Conta> contas = new ArrayList<>();
 
         try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM contas;")) {
             ResultSet rs = stmt.executeQuery();
-            List<Conta> contas = new ArrayList<>();
 
             while(rs.next()) {
                 Conta conta = null;
                 Pessoa pessoa = new Pessoa(rs.getString(4), rs.getString(3));
+                int numConta = rs.getInt(2);
                 if (rs.getString(5).equals("CC")) {
                     conta = new ContaCorrente(pessoa, rs.getDouble(6));
                     conta.setId(rs.getInt(1));
+                    conta.setNumeroConta(rs.getInt(2));
                     contas.add(conta);
                 } else {
                     conta = new ContaPoupanca(pessoa, rs.getDouble(6));
                     conta.setId(rs.getInt(1));
+                    conta.setNumeroConta(rs.getInt(2));
                     contas.add(conta);
                 }
-
             }
-            return contas;
 
         } catch (SQLException e) {
             System.out.println("Erro ao consultar todas as contas: " + e.getMessage());
         }
 
-        return null;
+        return contas;
     }
 
 }
