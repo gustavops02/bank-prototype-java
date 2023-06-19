@@ -11,6 +11,7 @@ public class DesignConfig {
         System.out.println("--------------------");
         System.out.println("1 - Cadastrar conta");
         System.out.println("2 - Usar conta");
+        System.out.println("3 - Consultar contas");
         System.out.println("--------------------");
     }
 

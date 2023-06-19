@@ -6,6 +6,7 @@ import com.bank.utilitarios.UsarServico;
 import com.bank.utilitarios.DesignConfig;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -36,6 +37,14 @@ public class Main {
                     Conta conta = ServicoContas.buscarConta(buscaNumeroConta, buscaCpf);
                     executarOperacoesConta(sc, conta);
 
+                    break;
+                case 3:
+
+                    List<Conta> contas = ServicoContas.buscarContas();
+                    for (Conta c: contas) {
+                        System.out.println("\n");
+                        System.out.println(c);
+                    }
                     break;
                 default:
                     System.err.println("Algo deu errado");
