@@ -9,6 +9,8 @@ import com.bank.entidades.ContaPoupanca;
 import com.bank.entidades.Pessoa;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.bank.constantes.ConstantesQueries.*;
 
@@ -156,6 +158,36 @@ public class ServicoContas {
         } catch (SQLException e) {
             throw new DBException(e.getMessage());
         }
+    }
+
+    public static List<Conta> buscarContas() {
+
+        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM contas;")) {
+            ResultSet rs = stmt.executeQuery();
+
+            List<Conta> contas = new ArrayList<>();
+
+            while(rs.next()) {
+                Conta conta = null;
+                Pessoa pessoa = new Pessoa(rs.getString(4), rs.getString(3));
+                if (rs.getString(5).equals("CC")) {
+                    conta = new ContaCorrente(pessoa, rs.getDouble(6));
+                    contas.add(conta);
+                } else {
+                    conta = new ContaPoupanca(pessoa, rs.getDouble(6));
+                    contas.add(conta);
+                }
+
+            }
+
+            return contas;
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao consultar todas as contas: " + e.getMessage());
+        }
+
+
+        return null;
     }
 
 }
